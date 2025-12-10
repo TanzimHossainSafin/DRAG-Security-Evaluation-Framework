@@ -1,0 +1,18 @@
+security:
+  # DATA POISONING ATTACK (Integrity Attack)
+  # Injects malicious data into peer knowledge bases to degrade answer quality
+  enable_attack: False
+  poisoning_ratio: 0.3                        # % of peers to compromise (0.0-1.0)
+  attack_strategy: 'random'                   # 'random', 'high_degree', 'topic_specific', 'targeted'
+  poison_type: 'answer_swap'                  # 'wrong_answer', 'misleading', 'noise', 'answer_swap'
+  target_peer_ids: []                         # Specific peers to target (for 'targeted' strategy)
+  amplification_factor: 3                     # Number of copies per poisoned datapoint
+  question_variants: 2                        # Number of question variants to create
+  
+  # MEMBERSHIP INFERENCE ATTACK (Privacy Attack)
+  # Determines if specific data exists in the knowledge base
+  enable_membership_inference: True
+  mia_inference_method: 'confidence_based'    # 'confidence_based', 'threshold_based', 'ml_based'
+  mia_test_size: 0.5                          # Proportion of non-members (0.0-1.0)
+  mia_threshold_percentile: 50                # Decision threshold percentile (0-100)
+  mia_random_seed: 42

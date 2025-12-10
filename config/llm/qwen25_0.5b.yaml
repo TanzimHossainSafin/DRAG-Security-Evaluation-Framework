@@ -1,0 +1,6 @@
+llm:
+  base_url: http://localhost:11434
+  name: qwen2.5:0.5b
+  num_ctx: 4096
+
+
